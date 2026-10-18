@@ -154,10 +154,6 @@ body {
   pointer-events: none;
   z-index: 2;
   background-color: transparent;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
   filter: none !important;
 }
 
@@ -949,6 +945,13 @@ body {
   transform: scale(1.05);
 }
 
+.brands-marquee .brand-item {
+  color: inherit;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+
 /* ==========================================================
    5. SERVICES SECTION
    ========================================================== */
@@ -1182,6 +1185,9 @@ body {
   justify-content: center;
   flex-shrink: 0;
   margin-top: 1px;
+  color: var(--text-main);
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .feature-check.check-featured {

@@ -77,7 +77,7 @@
   // Responsive retina resize
   function resize() {
     const pixelRatio = window.devicePixelRatio || 1;
-    dpr = Math.min(Math.max(1, pixelRatio), 2.5);
+    dpr = Math.min(Math.max(1, pixelRatio), 3);
     const w = window.innerWidth;
     const h = window.innerHeight;
 
@@ -227,7 +227,7 @@
 
   // Highlight active navbar link based on scroll section
   function updateActiveNav() {
-    const sections = ['home', 'pricing', 'services', 'about', 'contact'];
+    const sections = ['home', 'about', 'services', 'pricing', 'contact'];
     const navLinks = document.querySelectorAll('.nav-link');
     let currentSection = 'home';
 
@@ -271,7 +271,7 @@
 
     const frameDiff = targetFrame - currentFrame;
     if (Math.abs(frameDiff) > 0.001) {
-      currentFrame += frameDiff * 0.14;
+      currentFrame += frameDiff * 0.22;
     } else {
       currentFrame = targetFrame;
     }
