@@ -35,7 +35,7 @@
         <span class="logo-text">Lance</span>
       </a>
 
-      <nav class="nav-links-pill">
+      <nav class="nav-links-pill" id="primary-navigation">
         <a href="#home" class="nav-link active">Home</a>
         <a href="#pricing" class="nav-link">Pricing</a>
         <a href="#services" class="nav-link">Services</a>
@@ -43,7 +43,7 @@
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
-      <button class="nav-menu-btn" aria-label="Toggle Menu">
+      <button class="nav-menu-btn" type="button" aria-label="Toggle navigation menu" aria-controls="primary-navigation" aria-expanded="false">
         <span>Menu</span>
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="2" y1="4" x2="12" y2="4"/>
@@ -168,7 +168,7 @@
         </div>
 
         <h2 class="statement-headline">
-          I design and manage <strong class="highlight-red">Discord Server</strong>s with a focus on clean layouts, organized channels, effective moderation systems, and engaging communities. From server setup to staff management, I bring your vision to life with <strong class="highlight-red">reliable service</strong> and attention to detail.
+          I design and manage <strong class="highlight-red">Discord Server</strong><strong class="highlight-red">s</strong> with a focus on clean layouts, organized channels, effective moderation systems, and engaging communities. From server setup to staff management, I bring your vision to life with <strong class="highlight-red">reliable service</strong> and attention to detail.
         </h2>
       </div>
     </section>
@@ -188,6 +188,7 @@
 
           <div class="bento-cta">
             <button class="btn btn-secondary btn-sm">GMT-4</button>
+            <time class="local-time-clock" id="local-time" aria-label="Current time in GMT minus 4">--:--:--</time>
           </div>
 
           <div class="montreal-visual-container">
@@ -222,9 +223,10 @@
           <!-- Bottom Right Card: Testimonial -->
           <div class="glass-card bento-card bento-testimonial">
             <div class="testimonial-avatar-wrapper">
-              <div class="avatar-photo"></div>
+              <img class="avatar-photo" src="images/cw-avatar.png" alt="Cw's profile picture">
             </div>
             <div class="testimonial-content">
+              <span class="quote-mark" aria-hidden="true">“</span>
               <p class="quote-text">
                 “Honest Community Manager who communicates clearly and active.”
               </p>

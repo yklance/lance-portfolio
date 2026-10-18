@@ -225,6 +225,53 @@
     });
   }
 
+  const localTime = document.getElementById('local-time');
+  const localTimeFormatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Etc/GMT+4',
+    hour: 'numeric',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true
+  });
+
+  function updateLocalTime() {
+    const now = new Date();
+    localTime.dateTime = now.toISOString();
+    localTime.textContent = localTimeFormatter.format(now);
+  }
+
+  if (localTime) {
+    updateLocalTime();
+    window.setInterval(updateLocalTime, 1000);
+  }
+
+  const navbar = document.querySelector('.navbar');
+  const menuButton = document.querySelector('.nav-menu-btn');
+  const primaryNavigation = document.getElementById('primary-navigation');
+
+  function setMenuOpen(isOpen) {
+    navbar.classList.toggle('menu-open', isOpen);
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+    menuButton.querySelector('span').textContent = isOpen ? 'Close' : 'Menu';
+  }
+
+  menuButton.addEventListener('click', () => {
+    setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
+  });
+
+  primaryNavigation.addEventListener('click', (event) => {
+    if (event.target.closest('a')) {
+      setMenuOpen(false);
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+      setMenuOpen(false);
+      menuButton.focus();
+    }
+  });
+
   // Highlight active navbar link based on scroll section
   function updateActiveNav() {
     const sections = ['home', 'about', 'services', 'pricing', 'contact'];

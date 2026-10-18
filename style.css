@@ -366,6 +366,25 @@ body {
   background: var(--primary-red-bright);
 }
 
+.navbar.menu-open .nav-links-pill {
+  display: flex;
+  position: absolute;
+  top: calc(100% + 4px);
+  right: max(28px, calc((100vw - 1280px) / 2 + 28px));
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+  width: min(280px, calc(100vw - 56px));
+  padding: 8px;
+  border-radius: 18px;
+  background: rgba(18, 18, 22, 0.94);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.navbar.menu-open .nav-link {
+  width: 100%;
+}
+
 /* ==========================================================
    1. HERO SECTION
    ========================================================== */
@@ -744,6 +763,16 @@ body {
   margin: 14px 0 20px;
 }
 
+.local-time-clock {
+  display: block;
+  margin-top: 10px;
+  color: var(--text-main);
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
 /* Montréal Studio scene visual */
 .montreal-visual-container {
   width: 100%;
@@ -853,7 +882,7 @@ body {
   width: 76px;
   height: 76px;
   flex-shrink: 0;
-  border-radius: 16px;
+  border-radius: 18px;
   border: 1.5px solid rgba(230, 57, 70, 0.4);
   overflow: hidden;
   box-shadow: 0 0 16px rgba(230, 57, 70, 0.25);
@@ -866,9 +895,10 @@ body {
 .avatar-photo {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #ff6b6b 0%, #c92a2a 100%);
-  mask: radial-gradient(circle at 50% 35%, #000 30%, transparent 70%);
-  -webkit-mask: radial-gradient(circle at 50% 35%, #000 30%, transparent 70%);
+  object-fit: cover;
+  object-position: center 42%;
+  border-radius: inherit;
+  filter: grayscale(1) contrast(1.08);
 }
 
 .testimonial-content {
@@ -878,9 +908,12 @@ body {
 }
 
 .quote-mark {
-  font-size: 28px;
+  font-size: 64px;
   color: var(--primary-red-bright);
-  line-height: 1;
+  font-family: Georgia, serif;
+  font-weight: 800;
+  line-height: 0.68;
+  height: 38px;
 }
 
 .quote-text {
