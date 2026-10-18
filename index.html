@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lance — Lance Services On Demand</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Fixed Background Environment: Multi-layer Atmospheric Lighting, Cyber Mesh, Vignette & Embers -->
+  <div class="background-environment" aria-hidden="true">
+    <div class="ambient-glow glow-hero-center"></div>
+    <div class="ambient-glow glow-top-radial"></div>
+    <div class="ambient-glow glow-floor-reflection"></div>
+    <div class="cyber-grid-mesh"></div>
+    <canvas id="ambient-particles"></canvas>
+    <div class="cinematic-vignette"></div>
+  </div>
+
+  <!-- Fixed Canvas for 3D Character Scroll Animation -->
+  <canvas id="scroll-canvas"></canvas>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <svg class="logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="11" stroke="#FF3B30" stroke-width="2.5" stroke-dasharray="32 10"/>
+          <circle cx="14" cy="14" r="6" fill="#FF3B30" opacity="0.9"/>
+          <circle cx="14" cy="14" r="2.5" fill="#FFFFFF"/>
+        </svg>
+        <span class="logo-text">Lance</span>
+      </a>
+
+      <nav class="nav-links-pill">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <button class="nav-menu-btn" aria-label="Toggle Menu">
+        <span>Menu</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="2" y1="4" x2="12" y2="4"/>
+          <line x1="2" y1="10" x2="12" y2="10"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper (scrolling over canvas) -->
+  <main class="page-content">
+
+    <!-- 1. HERO SECTION -->
+    <section class="section hero-section" id="home">
+      <div class="container hero-grid">
+        
+        <!-- Left Column: Headline, CTAs, Stat Card -->
+        <div class="hero-left">
+          <div class="pill-badge">
+            <span class="badge-dot">✦</span>
+            <span>Best Services</span>
+          </div>
+
+          <h1 class="hero-title">
+            Lance Services <span class="badge-superscript">From Idea<br>to Reality</span><br>
+            <span class="gradient-text">On Demand</span>
+          </h1>
+
+          <p class="hero-desc">
+            From discovery to reality, I’m committed to bringing your ideas to life with honest, reliable, and high quality services. I focus on understanding your vision, delivering the best results possible, and making sure every project reflects your goals and expectations.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#services" class="btn btn-secondary">Explore Services</a>
+            <a href="#pricing" class="btn btn-primary btn-glow">View Pricing Plans</a>
+          </div>
+
+          <!-- Bottom Stat Card -->
+          <div class="hero-stats-row">
+            <div class="stat-mini-card">
+              <span class="stat-label">Experiences</span>
+              <div class="stat-val-group">
+                <span class="stat-number">300K+</span>
+                <div class="avatar-stack">
+                  <span class="mini-avatar av-1"></span>
+                  <span class="mini-avatar av-2"></span>
+                  <span class="mini-avatar av-3"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center: Open space reserved for the 3D Character Animation -->
+        <div class="hero-center-spacer"></div>
+
+        <!-- Floating Social Presence Bar -->
+        <div class="social-floating-pill">
+          <a href="https://discord.com/users/1487549606790303945" target="_blank" rel="noopener noreferrer" aria-label="Discord" class="social-icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+            </svg>
+          </a>
+          <span class="social-tag">SOCIAL<br>PRESENCE</span>
+          <a href="https://www.roblox.com/users/1418953477/profile" target="_blank" rel="noopener noreferrer" aria-label="Roblox profile 1418953477" class="social-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M5.145 0 0 18.855 18.855 24 24 5.145 5.145 0zm9.469 14.614-5.255-1.433 1.433-5.255 5.255 1.433-1.433 5.255z"/>
+            </svg>
+          </a>
+          <a href="https://www.roblox.com/users/8899793365/profile" target="_blank" rel="noopener noreferrer" aria-label="Roblox profile 8899793365" class="social-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M5.145 0 0 18.855 18.855 24 24 5.145 5.145 0zm9.469 14.614-5.255-1.433 1.433-5.255 5.255 1.433-1.433 5.255z"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Right Column: Hero Showcase Cards -->
+        <div class="hero-right">
+          <!-- Card 1: Projects Card -->
+          <div class="glass-card hero-preview-card">
+            <div class="preview-card-header">
+              <span class="preview-brand">Lance</span>
+            </div>
+            
+            <div class="preview-visual-box">
+              <div class="ambient-glow"></div>
+              <div class="preview-grid-pattern"></div>
+              <div class="cyber-avatar-ring">
+                <span class="avatar-core"></span>
+              </div>
+            </div>
+
+            <div class="preview-card-body">
+              <div class="stat-highlight">50+</div>
+              <p class="stat-desc">Projects successfully contributed to</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Trusted Card -->
+          <div class="glass-card hero-partner-card">
+            <div class="partner-card-header">
+              <div class="stat-highlight">80+</div>
+              <p class="stat-desc">Trusted</p>
+            </div>
+
+            <div class="partner-logos-mini">
+              <span class="mini-brand">Owners Developers Staff Investors</span>
+            </div>
+
+            <a href="#contact" class="btn btn-primary btn-block btn-glow">Book Now</a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. MISSION / ABOUT STATEMENT SECTION -->
+    <section class="section statement-section" id="about">
+      <div class="container statement-container">
+        <div class="pill-badge">
+          <span class="badge-dot">✦</span>
+          <span>About Us</span>
+        </div>
+
+        <h2 class="statement-headline">
+          We <span class="highlight-red">design</span> and deploy <span class="highlight-red">AI solutions</span> with people at the core, ensuring every <span class="highlight-red">system enhances</span> real user experiences.
+        </h2>
+      </div>
+    </section>
+
+    <!-- 3. BENTO GRID SECTION (Montréal & Social Proof) -->
+    <section class="section bento-section">
+      <div class="container bento-grid">
+        
+        <!-- Left Bento Card: Montréal, Canada -->
+        <div class="glass-card bento-card bento-montreal">
+          <div class="card-pill-tag">
+            <span class="pulse-dot"></span>
+            <span>Available for worldwide project</span>
+          </div>
+
+          <h3 class="bento-title">Based in <span class="highlight-red">Montréal, Canada</span></h3>
+
+          <div class="bento-cta">
+            <button class="btn btn-secondary btn-sm">Start a Project</button>
+          </div>
+
+          <div class="montreal-visual-container">
+            <div class="red-ambient-overlay"></div>
+            <!-- Atmospheric Studio Illustration -->
+            <div class="studio-scene">
+              <div class="studio-desk"></div>
+              <div class="monitor-glow m1"></div>
+              <div class="monitor-glow m2"></div>
+              <div class="dev-silhouette dev-left"></div>
+              <div class="dev-silhouette dev-right"></div>
+              <div class="mood-light"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Bento Column -->
+        <div class="bento-right-column">
+          
+          <!-- Top Right Card: 120+ Clients -->
+          <div class="glass-card bento-card bento-metric">
+            <p class="metric-caption">
+              Trusted by 120+ clients across 4 industries - shipping AI from idea to production in 8-10 weeks
+            </p>
+            <div class="metric-footer">
+              <div class="star-rating">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <div class="huge-number">120+</div>
+            </div>
+          </div>
+
+          <!-- Bottom Right Card: Testimonial -->
+          <div class="glass-card bento-card bento-testimonial">
+            <div class="testimonial-avatar-wrapper">
+              <div class="avatar-photo"></div>
+            </div>
+            <div class="testimonial-content">
+              <span class="quote-mark">“</span>
+              <p class="quote-text">
+                Good AI feels obvious—because the hard work is hidden.
+              </p>
+              <div class="author-meta">
+                <strong>Ava Collins</strong>
+                <span class="author-role">| Lance's Design Lead</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. TRUSTED BRANDS LOGO BAR -->
+    <section class="section brands-section">
+      <div class="container brands-container">
+        <span class="brands-label">Trusted by 100+<br>top-tier brands</span>
+
+        <div class="brands-marquee">
+          <div class="brand-item">
+            <svg width="120" height="26" viewBox="0 0 120 26" fill="currentColor">
+              <circle cx="12" cy="13" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="28" y="18" font-family="sans-serif" font-weight="700" font-size="14" letter-spacing="1">LOGOIPSUM</text>
+            </svg>
+          </div>
+          <div class="brand-item">
+            <svg width="40" height="26" viewBox="0 0 40 26" fill="currentColor">
+              <path d="M10 6C15 6 18 10 18 13C18 17 15 20 10 20H4V6H10ZM10 11H8V15H10C12 15 13 14 13 13C13 12 12 11 10 11ZM20 20L28 6H33L25 20H20Z"/>
+            </svg>
+          </div>
+          <div class="brand-item">
+            <svg width="120" height="26" viewBox="0 0 120 26" fill="currentColor">
+              <polygon points="12,5 20,20 4,20" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="28" y="18" font-family="sans-serif" font-weight="700" font-size="14" letter-spacing="1">LOGOIPSUM</text>
+            </svg>
+          </div>
+          <div class="brand-item">
+            <svg width="34" height="26" viewBox="0 0 34 26" fill="currentColor">
+              <rect x="4" y="6" width="26" height="5" rx="2.5"/>
+              <rect x="4" y="15" width="26" height="5" rx="2.5"/>
+            </svg>
+          </div>
+          <div class="brand-item">
+            <svg width="120" height="26" viewBox="0 0 120 26" fill="currentColor">
+              <rect x="5" y="6" width="14" height="14" rx="3" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="28" y="18" font-family="sans-serif" font-weight="700" font-size="14" letter-spacing="1">Logoipsum</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SERVICES SECTION -->
+    <section class="section services-section" id="services">
+      <div class="container services-grid">
+        
+        <!-- Left Column: Title & Info -->
+        <div class="services-left">
+          <div class="pill-badge">
+            <span class="badge-dot">•</span>
+            <span>Services</span>
+          </div>
+
+          <h2 class="section-title">
+            End-to-End<br>
+            AI Services
+          </h2>
+
+          <p class="section-desc">
+            We turn ambiguous AI ideas into production features your users trust—combining strategy, design, engineering, and rigorous evaluation.
+          </p>
+        </div>
+
+        <!-- Right Column: Interactive Service Cards -->
+        <div class="services-right">
+          
+          <!-- Service Card 01 -->
+          <div class="glass-card service-card active">
+            <div class="service-card-header">
+              <h3 class="service-name">AI Strategy & Mapping</h3>
+              <span class="service-index">(01)</span>
+            </div>
+
+            <p class="service-details">
+              Identify high-ROI use cases and define a realistic, measurable AI roadmap.
+            </p>
+
+            <div class="service-tags">
+              <span class="service-tag">Stakeholder discovery</span>
+              <span class="service-tag">Value model & KPI definition</span>
+              <span class="service-tag">Data readiness assessment</span>
+            </div>
+          </div>
+
+          <!-- Service Card 02 -->
+          <div class="glass-card service-card">
+            <div class="service-card-header">
+              <h3 class="service-name">Autonomous Agents & Workflows</h3>
+              <span class="service-index">(02)</span>
+            </div>
+
+            <p class="service-details">
+              Architect and orchestrate autonomous systems that integrate with existing human pipelines.
+            </p>
+
+            <div class="service-tags">
+              <span class="service-tag">Multi-agent systems</span>
+              <span class="service-tag">Human-in-the-loop</span>
+              <span class="service-tag">Fault tolerance & guardrails</span>
+            </div>
+          </div>
+
+          <!-- Service Card 03 -->
+          <div class="glass-card service-card">
+            <div class="service-card-header">
+              <h3 class="service-name">Production ML & Fine-Tuning</h3>
+              <span class="service-index">(03)</span>
+            </div>
+
+            <p class="service-details">
+              Deploy low-latency fine-tuned models with guardrails, continuous monitoring, and security.
+            </p>
+
+            <div class="service-tags">
+              <span class="service-tag">Low-latency serving</span>
+              <span class="service-tag">RAG architecture</span>
+              <span class="service-tag">Continuous evaluation</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. PRICING SECTION (from reference screenshot) -->
+    <section class="section pricing-section" id="pricing">
+      <!-- Massive Background Typography Title -->
+      <div class="pricing-bg-title-wrap">
+        <h2 class="pricing-bg-title">Pricing</h2>
+      </div>
+
+      <div class="container pricing-container">
+        
+        <!-- Three Pricing Cards Grid -->
+        <div class="pricing-grid">
+
+          <!-- Free Plan -->
+          <div class="glass-card pricing-card">
+            <div class="pricing-card-header">
+              <span class="plan-badge">Free Plan</span>
+              <div class="pricing-amount">
+                <span class="price-val" data-monthly="Free" data-yearly="Free">Free</span>
+              </div>
+            </div>
+
+            <ul class="pricing-features">
+              <li class="pricing-feature-item">
+                <span class="feature-check">
+                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>Send up to 2 transfers per month</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="feature-check">
+                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>Basic transaction history</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="feature-check">
+                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>Email support</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="feature-check">
+                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>Limited currency support (USD, EUR, GBP)</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="feature-check">
+                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>Basic security features</span>
+              </li>
+            </ul>
+
+            <div class="pricing-card-footer">
+              <button class="btn btn-secondary btn-block">Get Started</button>
+            </div>
+          </div>
+
+          <!-- Standard Plan (Featured / Active) -->
+          <div class="glass-card pricing-card pricing-card-featured active">
+            <div class="pricing-card-header">
+              <span class="plan-badge">Standard Plan</span>
+              <div class="pricing-amount">
+                <span class="price-val" data-monthly="$9.99/m" data-yearly="$7.99/m">$9.99/m</span>
+              </div>
+            </div>
+
+            <ul class="pricing-features">
+              <li class="pricing-feature-item">
+                <span class="feature-check check-featured">
+                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>Unlimited transfers</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="feature-check check-featured">
+                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>Transaction history with export options</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="feature-check check-featured">
+                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>Priority email support</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="feature-check check-featured">
+                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>Expanded currency support</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="feature-check check-featured">
+                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>Advanced security features</span>
+              </li>
+            </ul>
+
+            <div class="pricing-card-footer">
+              <button class="btn btn-white btn-block">Get Started</button>
+            </div>
+          </div>
+
+          <!-- Pro Plan -->
+          <div class="glass-card pricing-card">
+            <div class="pricing-card-header">
+              <span class="plan-badge">Pro Plan</span>
+              <div class="pricing-amount">
+                <span class="price-val" data-monthly="$19.99/m" data-yearly="$15.99/m">$19.99/m</span>
+              </div>
+            </div>
+
+            <ul class="pricing-features">
+              <li class="pricing-feature-item">
+                <span class="feature-check">
+                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>Unlimited transfers with priority processing</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="feature-check">
+                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>Comprehensive transaction analytics</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="feature-check">
+                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>24/7 priority support</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="feature-check">
+                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>Full currency support</span>
+              </li>
+              <li class="pricing-feature-item">
+                <span class="feature-check">
+                  <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>Enhanced security features</span>
+              </li>
+            </ul>
+
+            <div class="pricing-card-footer">
+              <button class="btn btn-secondary btn-block">Get Started</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Billed Yearly Toggle (Bottom Left as in reference) -->
+        <div class="pricing-bottom-controls">
+          <div class="pricing-toggle-wrap">
+            <label class="toggle-switch" for="pricing-toggle">
+              <input type="checkbox" id="pricing-toggle" aria-label="Toggle annual billing">
+              <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-label">Billed Yearly <span class="discount-badge">Save 20%</span></span>
+          </div>
+        </div>
+
+        <!-- Plans Connector Tag -->
+        <div class="plans-connector">
+          <div class="connector-line"></div>
+          <span class="plans-pill">Plans</span>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section statement-section" id="contact">
+      <div class="container statement-container">
+        <div class="pill-badge">
+          <span class="badge-dot">✦</span>
+          <span>Contact</span>
+        </div>
+        <h2 class="statement-headline">Ready to bring your ideas to life?</h2>
+        <p class="section-desc">Tell me about your project and let’s make it happen.</p>
+        <a href="https://discord.com/users/1487549606790303945" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-glow">Message me on Discord</a>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
