@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20261018-clock-menu">
+  <link rel="stylesheet" href="style.css?v=20261018-clock-card">
 </head>
 <body>
   <!-- Fixed Background Environment: Multi-layer Atmospheric Lighting, Cyber Mesh, Vignette & Embers -->
@@ -188,19 +188,13 @@
 
           <div class="bento-cta">
             <button class="btn btn-secondary btn-sm">GMT-4</button>
-            <time class="local-time-clock" id="local-time" aria-label="Current time in GMT minus 4">--:--:--</time>
           </div>
 
           <div class="montreal-visual-container">
-            <div class="red-ambient-overlay"></div>
-            <!-- Atmospheric Studio Illustration -->
-            <div class="studio-scene">
-              <div class="studio-desk"></div>
-              <div class="monitor-glow m1"></div>
-              <div class="monitor-glow m2"></div>
-              <div class="dev-silhouette dev-left"></div>
-              <div class="dev-silhouette dev-right"></div>
-              <div class="mood-light"></div>
+            <div class="time-visual">
+              <span class="time-visual-label">CURRENT LOCAL TIME</span>
+              <time class="local-time-clock" id="local-time" aria-label="Current time in GMT minus 4">--:--:--</time>
+              <span class="time-visual-zone">GMT-4</span>
             </div>
           </div>
         </div>
@@ -450,6 +444,6 @@
 
   </main>
 
-  <script src="app.js?v=20261018-clock-menu"></script>
+  <script src="app.js?v=20261018-clock-card"></script>
 </body>
 </html>

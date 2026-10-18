@@ -765,74 +765,75 @@ body {
 
 .local-time-clock {
   display: block;
-  margin-top: 10px;
-  color: var(--text-main);
-  font-size: 20px;
+  color: #ffffff;
+  font-size: clamp(2rem, 5vw, 3.25rem);
   font-variant-numeric: tabular-nums;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: -0.05em;
+  line-height: 1;
 }
 
-/* Montréal Studio scene visual */
 .montreal-visual-container {
   width: 100%;
-  height: 200px;
+  min-height: 200px;
   border-radius: 14px;
-  background: linear-gradient(180deg, #161214 0%, #0c0a0c 100%);
+  background:
+    radial-gradient(ellipse at 50% 115%, rgba(230, 57, 70, 0.4), transparent 63%),
+    linear-gradient(145deg, #201416 0%, #110d10 54%, #09090b 100%);
   border: 1px solid rgba(230, 57, 70, 0.25);
   position: relative;
   overflow: hidden;
-  box-shadow: inset 0 0 40px rgba(230, 57, 70, 0.2);
+  box-shadow: inset 0 0 50px rgba(230, 57, 70, 0.14);
 }
 
-.red-ambient-overlay {
+.montreal-visual-container::before,
+.montreal-visual-container::after {
+  content: "";
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 60% 40%, rgba(230, 57, 70, 0.4) 0%, transparent 70%);
-  mix-blend-mode: screen;
+  pointer-events: none;
 }
 
-.studio-scene {
-  position: absolute;
-  inset: 0;
+.montreal-visual-container::before {
+  width: 220px;
+  height: 220px;
+  top: -150px;
+  right: -50px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  box-shadow: 0 0 0 24px rgba(255, 255, 255, 0.025), 0 0 0 48px rgba(255, 255, 255, 0.02);
+}
+
+.montreal-visual-container::after {
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.time-visual {
+  position: relative;
+  z-index: 1;
+  min-height: 200px;
+  padding: 24px;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  gap: 12px;
 }
 
-.dev-silhouette {
-  width: 70px;
-  height: 90px;
-  background: #09090b;
-  border-radius: 40px 40px 0 0;
-  position: absolute;
-  bottom: 0;
-  box-shadow: 0 0 25px rgba(230, 57, 70, 0.35);
+.time-visual-label,
+.time-visual-zone {
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
 }
 
-.dev-silhouette.dev-left {
-  left: 28%;
-  transform: rotate(-3deg);
+.time-visual-zone {
+  color: var(--primary-red-bright);
 }
-
-.dev-silhouette.dev-right {
-  right: 28%;
-  height: 105px;
-  transform: rotate(3deg);
-}
-
-.monitor-glow {
-  width: 55px;
-  height: 35px;
-  background: rgba(255, 75, 75, 0.7);
-  box-shadow: 0 0 30px #ff3b30;
-  border-radius: 4px;
-  position: absolute;
-  bottom: 30px;
-}
-
-.monitor-glow.m1 { left: 22%; }
-.monitor-glow.m2 { right: 22%; }
 
 /* Bento Right Column */
 .bento-right-column {
