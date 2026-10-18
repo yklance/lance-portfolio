@@ -961,6 +961,22 @@ body {
   flex-shrink: 0;
 }
 
+.trusted-proof {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.trusted-stars {
+  display: block;
+  width: 130px;
+  height: 38px;
+  object-fit: cover;
+  object-position: center;
+}
+
 .brands-marquee {
   display: flex;
   align-items: center;
