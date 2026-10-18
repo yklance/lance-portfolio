@@ -966,15 +966,21 @@ body {
   flex: 0 0 auto;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
+  gap: 6px;
 }
 
 .trusted-stars {
   display: block;
-  width: 130px;
-  height: 38px;
-  object-fit: cover;
-  object-position: center;
+  width: 210px;
+  height: 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(210, 220, 235, 0.28));
+}
+
+.trusted-proof .brands-label {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .brands-marquee {
